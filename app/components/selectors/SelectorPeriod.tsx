@@ -9,7 +9,7 @@ export default function SelectorPeriod() {
 
   const periods = useSelector((state: RootState) => state.dropdowns.periods);
   const selectedPeriod = useSelector((state: RootState) => state.dropdowns.selectedPeriod);
-
+console.log("==== periods: ",periods);
   const onChangePeriod = (e: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(setSelectedPeriod(e.target.value));
     dispatch(setSelectedItemId("")); // Clear selected items when location changes

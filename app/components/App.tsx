@@ -33,9 +33,11 @@ export default function App() {
   }, []);
 
   return (
-    <div className="grid grid-rows-[auto_1fr_auto] h-screen">
-      <Header />
-      <MainBody />
+    <div className="flex flex-col h-[calc(100vh-48px)]">
+       <main className="flex-grow">
+        <MainBody />
+        </main>
+        
       <Footer />
     </div>
   );
