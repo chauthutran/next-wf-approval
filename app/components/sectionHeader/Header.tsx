@@ -1,4 +1,5 @@
-import Image from "next/image";
+import ContextMenus from "./ContextMenus";
+import Navigation from "./Navigation";
 
 export default function Header() {
 
@@ -14,6 +15,9 @@ export default function Header() {
         <div className="flex items-center space-x-4">
             <span className="text-sm">JC</span>
             <div className="relative w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center">J</div>
+            
+            <div className="lg:flex hidden"><Navigation /></div>
+            <div className="flex lg:hidden"><ContextMenus /></div>
         </div>
     </div>
   );

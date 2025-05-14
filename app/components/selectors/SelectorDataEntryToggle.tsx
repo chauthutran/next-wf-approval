@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState, toggleDataEntry } from "../../redux/store";
 import classes from "./SelectorDataEntryToggle.module.css";
 import { MdSwapHoriz } from "react-icons/md";  // Material Design icon
+import { usePathname } from 'next/navigation';
 
 const SelectorDataEntryToggle = () => {
   const dispatch = useDispatch();
@@ -14,14 +15,16 @@ const SelectorDataEntryToggle = () => {
   //const btnClassNames =  + classes.btnSwitchDataEntry + ' bg-blue-500 text-white text-sm px-2 py-1 rounded hover:bg-blue-600 cursor-pointer ';
   const btnClassNames = `${classes.btnSwitchDataEntry} bg-blue-500 text-white text-sm px-2 py-1 rounded hover:bg-blue-600 cursor-pointer flex items-center gap-2`;
   // e-500 text-white text-sm px-2 py-1 rounded hover:bg-blue-600 cursor-pointer flex items-center gap-2`;
-
+  const pathname = usePathname();
   return (
-    <button className={btnClassNames}
-    onClick={toggleDataEntryClick}
-    >
-      <MdSwapHoriz className="w-5 h-5" />
-      <span>Switch To { isDataEntry? 'Data Approval' : 'Data Entry'}</span>
-    </button>
+    <>
+      {pathname !== '/dataEntryFull' && <button className={btnClassNames}
+        onClick={toggleDataEntryClick}
+      >
+        <MdSwapHoriz className="w-5 h-5" />
+        <span>Switch To { isDataEntry? 'Data Approval' : 'Data Entry'}</span>
+      </button>}
+    </>
   );
 };
 
